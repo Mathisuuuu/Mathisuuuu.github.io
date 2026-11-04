@@ -2,9 +2,14 @@
 
 <script> 
 
-const watch = navigator.geolocation.getCurrentPosition(position => {
+
+navigator.geolocation.getCurrentPosition(position => {
     const{ latitude, longitude } =position.coords;
 })
-console.log(watch);
 
+const watchId = navigator.geolocation.watchPosition(position => {
+    const{ latitude, longitude } = position.coords;
+});
+
+console.log(watchId);
 </script>
