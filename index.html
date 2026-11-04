@@ -1,21 +1,15 @@
 <h1>Mathis Supporta</h1>
-<button onclick="input()">Get Location</button>
-<script> 
+<p id="current"></p>
+<p id="watch"></p>
 
-
-navigator.geolocation.getCurrentPosition(position => {
-    const{ latitude, longitude } =position.coords;
-})
-
-const watchId = navigator.geolocation.watchPosition(position => {
-    const{ latitude, longitude } = position.coords;
+<script>
+navigator.geolocation.getCurrentPosition(pos => {
+  document.getElementById('current').textContent =
+    `Position : ${pos.coords.latitude}, ${pos.coords.longitude}`;
 });
 
-console.log(watchId);
-
-
-function input(position) {
-    const{ latitude, longitude } = position.coords;
-    console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
-}
+const watchId = navigator.geolocation.watchPosition(pos => {
+  document.getElementById('watch').textContent =
+    `Suivi (ID ${watchId}) : ${pos.coords.latitude}, ${pos.coords.longitude}`;
+});
 </script>
