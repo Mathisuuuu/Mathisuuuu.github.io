@@ -4,12 +4,22 @@
 
 <script>
 navigator.geolocation.getCurrentPosition(pos => {
-  document.getElementById('current').textContent =
-    `Position : ${pos.coords.latitude}, ${pos.coords.longitude}`;
+  document.getElementById('current').innerHTML =
+    `Position : ${pos.coords.latitude}, ${pos.coords.longitude} <br>
+      La précision : ${pos.coords.accuracy} mètres. <br>
+    La vitesse : ${pos.coords.speed} m/s.<br>
+    L'altitude : ${pos.coords.altitude} mètres.<br>
+    'timestamp' : ${pos.timestamp}`;
 });
 
 const watchId = navigator.geolocation.watchPosition(pos => {
-  document.getElementById('watch').textContent =
-    `Suivi (ID ${watchId}) : ${pos.coords.latitude}, ${pos.coords.longitude}`;
+  document.getElementById('watch').innerHTML =
+    `Suivi (ID ${watchId}) : ${pos.coords.latitude}, ${pos.coords.longitude} <br>
+    La précision : ${pos.coords.accuracy} mètres. <br>
+    La vitesse : ${pos.coords.speed} m/s.<br>
+    L'altitude :  ${pos.coords.altitude} mètres.<br>
+    'timestamp' : ${pos.timestamp}`;
 });
+
+
 </script>
