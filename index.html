@@ -1,12 +1,21 @@
 <h1>Mathis Supporta</h1>
+<br>
+<br>
+<br>
+<h3>CURRENT POSITION</h3>
+<br>
 <p id="current"></p>
+<br>
+<h3>WATCH POSITION</h3>
+<br>
+<a href="TD2/index.html">TD2</a>
 <p id="watch"></p>
 
 <script>
 navigator.geolocation.getCurrentPosition(pos => {
   document.getElementById('current').innerHTML =
     `Position : ${pos.coords.latitude}, ${pos.coords.longitude} <br>
-      La précision : ${pos.coords.accuracy} mètres. <br>
+    La précision : ${pos.coords.accuracy} mètres. <br>
     La vitesse : ${pos.coords.speed} m/s.<br>
     L'altitude : ${pos.coords.altitude} mètres.<br>
     'timestamp' : ${pos.timestamp}`;
