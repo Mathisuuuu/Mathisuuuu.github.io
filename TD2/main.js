@@ -7,13 +7,13 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setAnimationLoop(animate);
 document.body.appendChild(renderer.domElement);
-const light = new THREE.AmbientLight(0x444444); 
+const light = new THREE.AmbientLight(0x444444,15); 
 scene.add(light);
 
 const loader = new THREE.TextureLoader();
 const texture = loader.load('images.png');
 
-const geometry = new THREE.BoxGeometry(1, 1, 1);
+const geometry = new THREE.BoxGeometry(1, 1, 1)
 const geometryCircle = new THREE.CircleGeometry(1, 32);
 const material = new THREE.MeshBasicMaterial({
   map: texture,
@@ -25,7 +25,9 @@ Circle.position.x = 2;
 scene.add(cube, Circle);
 
 camera.position.z = 5;
-
+const fogColor = 0xcccccc;
+scene.background = new THREE.Color(fogColor);
+scene.fog = new THREE.Fog(fogColor, 3, 10);
 const gltfLoader = new GLTFLoader();
 		gltfLoader.load( 'https://threejs.org/manual/examples/resources/models/cartoon_lowpoly_small_city_free_pack/scene.gltf', ( gltf ) => {
 
